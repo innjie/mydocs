@@ -14,3 +14,4 @@ permalink: /design-pattern
 - [[8. Composite]]
 - [[9. Decoration]]
 - [[10. Facade]]
+- [[11. Flyweight]]
