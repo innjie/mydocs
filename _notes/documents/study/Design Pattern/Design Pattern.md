@@ -4,6 +4,7 @@ title: design pattern
 id: design pattern
 permalink: /design-pattern 
 ---
+
 - [[1. Singleton]]
 - [[2. Factory Method]]
 - [[3. Abstract Factory]]
