@@ -12,4 +12,4 @@ permalink: /
 
 ## Project
 
-### [[bookshelf project]]
+### [[bookshelf]]
