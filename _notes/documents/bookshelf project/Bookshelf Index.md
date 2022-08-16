@@ -1,7 +1,7 @@
 ---
 layout: page  
-title: design pattern 
-id: design pattern
+title: bookshelf
+id: bookshelf
 permalink: /bookshelf
 ---
 
