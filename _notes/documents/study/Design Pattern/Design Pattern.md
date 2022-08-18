@@ -16,3 +16,6 @@ permalink: /design-pattern
 - [[9. Decoration]]
 - [[10. Facade]]
 - [[11. Flyweight]]
+- [[12. Proxy]]
+- [[13. Chainable Responsibility]]
+- [[14. Command]]
