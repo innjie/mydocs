@@ -1,4 +1,12 @@
+---
+layout: page  
+title: Web2
+id: Web2
+permalink: /Web2
+---
+
 [url]()
+
 
 ## 추천도서
 - 그림으로 배우는 HTTP & NetworkBasic
