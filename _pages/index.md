@@ -7,6 +7,9 @@ permalink: /
 # Welcome! 🌱
 
 ## Study
+### Study Prog
+[[study-prog]]
+
 
 ### [[Design Pattern]]
 
