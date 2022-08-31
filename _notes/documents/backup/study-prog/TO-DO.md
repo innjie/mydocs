@@ -1,3 +1,10 @@
+---
+layout: page  
+title: study-prog
+id: study-prog
+permalink: /study-prog
+---
+
 # Lectures - Prog
 ## Prog
 [[2022]]

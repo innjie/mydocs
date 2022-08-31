@@ -14,6 +14,8 @@ permalink: /
 
 ### [[Design Pattern]]
 
+### [[Web2]]
+
 ## Project
 
 ### [[bookshelf]]
