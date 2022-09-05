@@ -14,4 +14,5 @@ permalink: /DB
 - [[2. IO 접근]]
 - [[3. Batch]]
 - [[4. Oracle DB]]
-
+- [[5. 메모리]]
+- [[6. PGA]]
