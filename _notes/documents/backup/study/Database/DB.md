@@ -16,3 +16,5 @@ permalink: /DB
 - [[4. Oracle DB]]
 - [[5. 메모리]]
 - [[6. PGA]]
+- [[7. Cursor & AMM]]
+- [[8. Wait event]]
