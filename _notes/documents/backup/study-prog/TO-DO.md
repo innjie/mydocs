@@ -16,7 +16,7 @@ permalink: /study-prog
 title: Lectures
 
 - [ ] oracle analysis -- ldcc
-- [ ] java 8
+- [ ] java 8 -> [modern java in action](https://livebook.manning.com/book/modern-java-in-action/about-this-book/)
 - [ ] code refactoring
 - [ ] coding test
 - [ ] java algorythm
