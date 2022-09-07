@@ -12,11 +12,13 @@ permalink: /study-prog
 
 ## Plan
 
+[modern java in action](https://livebook.manning.com/book/modern-java-in-action/about-this-book/)
+
 ```ad-todo
 title: Lectures
 
-- [ ] oracle analysis -- ldcc
-- [ ] java 8 -> [modern java in action](https://livebook.manning.com/book/modern-java-in-action/about-this-book/)
+
+- [ ] java 8 -> modern java in action
 - [ ] code refactoring
 - [ ] coding test
 - [ ] java algorythm
@@ -26,7 +28,7 @@ title: Lectures
 
 ## Done
 - [x] design pattern-- done
-
+- [x] oracle analysis -- ldcc
 
 
 
