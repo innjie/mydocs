@@ -1,6 +1,6 @@
 # Chapter 1
 
-# 요약
+# 목차
 
 -   자바가 변화하는 이유
 -   컴퓨팅의 변화
@@ -72,3 +72,104 @@ Java 8의 핵심 아이디어는 다음과 같다.
 2.  윈도우 95 버전 이상에서 윔프 프로그래밍 모델의 기초
 
 즉, 모든것은 객체이고, 동작이 핸들러로 전달되는 형식. 한번에 입력으로 다양한 출력을 구현할 수 있고 일찍이 브라우저들이 자바 코드가 동작하는 환경을 갖춰 대학에서 시장을 구축했고, 산업으로 이어졌다. C와 C++보다는 추가 실행 비용이 있었지만, 하드웨어가 빠르게 성장하면서 프로그래머의 역량도 중요해졌다. MS의 `C#` 은 객체 지향모델을 더욱 검증하게 되었다.
+
+그러나 최근 프로그램 언어 생태계에는 변화가 있다. 프로그래머들은 `빅데이터` (TB 크기 이상의 데이터)와 `멀티코어` 환경에서 효율적으로 동작하기를 원한다. 즉, 자바에게 친숙하지 않은 `병렬` 시스템을 원하는 것이다. Java 8에서 추가되는 항목들은 존재하는 프로그래밍적 문제를 빠르고, 중요하고, 쉬운 방법으로 해결할 수 있게 돕는다는 것이다.
+
+---
+
+# 자바의 메소드
+
+프로그래밍 언어에 있어서 `function` 이라는 단어는 `method` 의 의미로 사용된다.
+
+Java 8에서는 람다와 익명 메소드를 포함하여 값으로서의 메소드를 제공한다.
+
+```java
+public static List<Apple> filterHeavyApples(List<Apple> inventory) {
+    List<Apple> result = new ArrayList<>();
+    for (Apple apple: inventory){
+        if (apple.getWeight() > 150) {
+            result.add(apple);
+        }
+    }
+    return result;
+}
+```
+
+이제 한번밖에 쓰이지 않을 메소드를 작성하지 않아도 된다. 거쳐가는 메소드를 작성할 필요가 없기 때문이다.
+
+```java
+filterApples(inventory, (Apple a) -> GREEN.equals(a.getColor()) );
+filterApples(inventory, (Apple a) -> a.getWeight() > 150 );
+filterApples(inventory, (Apple a) -> a.getWeight() < 80 ||
+                                     RED.equals(a.getColor()) );
+```
+
+또한 `filter` 를 사용해서 같은 동작을 실행할 수 있다.
+
+```java
+static <T> Collection<T> filter(Collection<T> c, Predicate<T> p);
+filterApples(inventory, (Apple a) -> a.getWeight() > 150 );
+filter(inventory, (Apple a) -> a.getWeight() > 150 ); //filter 사용
+```
+
+---
+
+# Streams
+
+거의 모든 자바 애플리케이션들이 콜렉션을 만들거나 수행한다. 그러나 항상 콜렉션을 사용하는게 이상적이지는 않다.
+
+```java
+Map<Currency, List<Transaction>> transactionsByCurrencies =
+    new HashMap<>();
+for (Transaction transaction : transactions) {
+    if(transaction.getPrice() > 1000){
+        Currency currency = transaction.getCurrency();
+        List<Transaction> transactionsForCurrency =
+            transactionsByCurrencies.get(currency);
+        if (transactionsForCurrency == null) {
+            transactionsForCurrency = new ArrayList<>();
+            transactionsByCurrencies.put(currency,
+                                         transactionsForCurrency);
+        }
+        transactionsForCurrency.add(transaction);
+    }
+}
+```
+
+이 코드는 싸여 있는 코드의 분기가 많아 이해하기 어렵다. `Stream API` 를 사용한다면 다음과 같이 해결할 수 있다.
+
+```java
+import static java.util.stream.Collectors.groupingBy;
+Map<Currency, List<Transaction>> transactionsByCurrencies =
+    transactions.stream()
+                .filter((Transaction t) -> t.getPrice() > 1000)
+                .collect(groupingBy(Transaction::getCurrency));
+```
+
+Stream API는 Collection의 요소들을 비교하는데 사용되고 있다. collection을 사용하면 개발자가 직접 반복을 제어할 수 있다(`external iteration`). 반대로, Stream을 사용하면 반복에 대해 생각할 필요가 없다. 라이브러리 내부에서 수행되기 때문이다 (`internal iteration` )
+
+# Multicore Computers
+
+자바는 한개의 코어만 사용하고, 전력이 낭비된다. 유사하게, 많은 회사들은 `computing clusters` 를 많은 데이터를 효율적으로 처리하기 위해 사용한다. Java 8은 이런 컴퓨터에도 최적화될 수 있는 방법을 제시한다.
+
+이전 버전의 자바를 가지고 멀티 스레드 환경에서 쓰는 것은 어려웠다. 스레드가 동시에 업데이트나 접근이 가능했기 때문에 데이터들이 정합성이나 일관성을 유지하지 못했다. `동기화` 라는 단어를 통해서, 계속해서 작은 오류가 생겼다. Stream 기반의 병렬은 함수형 프로그래밍의 사용을 증가시키고 동기화까지 이루어냈다.
+
+## 자바의 병렬과 공유 불가능한 상태
+
+Java 8 에서 병렬을 해결하는 것에는 두 가지가 있다.
+
+1.  라이브러리가 큰 스트림을 핸들링해서 작은 단위로 나눠 처리한다.
+2.  이 병렬 처리는 스트림에게 자유롭고, `filter` 와 같은 라이브러리 메소드를 거치며 상호작용하지 않아야만 작동한다.
+
+이 조건들은 컴포넌트 간 실행 시 상호작용이 없는 것과 같은 효과를 준다.
+
+---
+
+# 요약
+
+-   언어 생태계를 기억하고, 언어의 진화와 도태에 대해서 생각해야 한다. 자바는 아직 건재한 언어이지만, `COBOL` 과 같은 전성기가 있었지만 쇠퇴한 언어도 존재한다.
+-   자바 8의 핵심 추가점은 함수적으로 프로그래밍하여 사용성과 효율성 모두를 갖춘 것이다.
+-   멀티코어 프로세서들은 완전히 지원되지는 않는다.
+-   함수들은 첫번째 클래스 값이다. 어떻게 메소드가 함수적 값이 될 수 있고, 익명 함수가 사용되는 방법을 알아야 한다.
+-   Java 8 의 스트림은 collection의 양상을 일반화했지만, 형태적으로는 읽기 쉽고 병렬 처리가 가능하다.
+-   대규모 프로그래밍과 시스템 인터페이스는 자바에서 제공되지 않았다. 이제는 모듈을 특정화하여 구조적 시스템화를 할 수 있다.
