@@ -352,3 +352,17 @@ Predicate<Apple> redAndHeavyAppleOrGreen =
 ## Example - `Functions`
 
 `Function` 인터페이스는 `andThen` 과 `compose` 로 구성되고, `Function` 타입을 리턴한다.
+
+```java
+// f -> g 연산 = 4
+Function<Integer, Integer> f = x -> x + 1;
+Function<Integer, Integer> g = x -> x * 2;
+Function<Integer, Integer> h = f.andThen(g);
+int result = h.apply(1);
+
+// g -> f 연산 = 3
+Function<Integer, Integer> f = x -> x + 1;
+Function<Integer, Integer> g = x -> x * 2;
+Function<Integer, Integer> h = f.compose(g);
+int result = h.apply(1);
+```
