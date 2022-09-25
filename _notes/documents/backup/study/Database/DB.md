@@ -18,3 +18,9 @@ permalink: /DB
 - [[6. PGA]]
 - [[7. Cursor & AMM]]
 - [[8. Wait event]]
+
+## Procedure
+- [[0. Procedure]]
+- [[1. SELECT INTO]]
+- [[2. SELECT 1 FROM TABLE]]
+- 
