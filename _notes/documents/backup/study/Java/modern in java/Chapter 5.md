@@ -283,3 +283,61 @@ System.out.println(evenNumbers.count());
 ```
 - **`count()`** : terminal operation
 
+### flatMap
+
+#### Code Example
+```java
+	List<String> results = 
+			animals.stream().map(animal -> animal.split(""))
+							.flatMap(Arrays::stream) 
+							.collect(Collectors.toList());
+```
+
+```ad-tip
+title: flatMap
+
+스트림의 형태가 배열과 같을 때, 모든 원소를 `단일 원소 스트림`으로 변환하여 사용할 수 있음
+이렇게 사용하면 `filter` 등 다른 일반 스트림 메소드를 활용할 수 있다.
+
+예제 코드에서, `flatMap(Arrays::stream)`이 배열을 스트림으로 변환해주는 코드
+위 코드를 사용해서 전체 스트림을 평면화한 스트림을 얻을 수 있다.
+
+```
+
+<hr>
+# Stream 만들기
+## 1. Stream.of
+- 명시적 값 스트림 생성 (파라미터의 숫자 등)
+```java
+Stream<String> stream = Stream.of("Modern", "Java", "In", "Action");
+// 대문자로 변경 후 출력
+stream.map(String::toUpperCase).forEach(System.out.::println);
+```
+- 빈 스트림 생성
+```java
+Stream <String> emptyStream = Stream.empty();
+```
+
+## 2. Stream nullable
+- Java 9에서 추가됨
+- ex) map에서 키에 할당된 값이 없는 경우에 사용하면 명시적으로 체크할 필요가 없다
+```java
+String homeValue = System.getProperty("home");
+// nullable 사용 X
+Stream<String> homeValueStream = 
+					homeValue == null ? Stream.empty() : Stream.of(value)
+
+// nullable 사용
+Stream<String> homeValueStream = Stream.ofNullable(System.getProperty("home"));
+
+// flatMap과 사용
+Stream<String> values = Stream.of("config", "home", "user")
+						.flatMap(key -> Stream.ofNullable(System.getProperty(key)));
+```
+
+## 3. Stream & Array
+- `Arrays.stream` 사용
+```java
+int [] numbers = {2, 3, 5, 7, 11, 13};
+int sum = Arrays.stream(numbers).sum();
+```
