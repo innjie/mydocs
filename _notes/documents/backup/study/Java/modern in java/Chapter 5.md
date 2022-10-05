@@ -341,3 +341,4 @@ Stream<String> values = Stream.of("config", "home", "user")
 int [] numbers = {2, 3, 5, 7, 11, 13};
 int sum = Arrays.stream(numbers).sum();
 ```
+
