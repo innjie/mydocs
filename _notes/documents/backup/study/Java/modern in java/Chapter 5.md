@@ -342,3 +342,28 @@ int [] numbers = {2, 3, 5, 7, 11, 13};
 int sum = Arrays.stream(numbers).sum();
 ```
 
+## 4. Stream & File
+```ad-info
+title : NIO API (non-blocking I/O)
+
+`java.nio.file.Files` 내의 정적 메소드는 스트림을 반환하게 되었다.
+따라서 한줄씩 읽기에 용이해졌다.
+```
+
+```java
+long uniqueWords = 0;
+try( // IO block이므로 try-catch 구문 필요
+	Stream<String> lines =
+        Files.lines(Paths.get("data.txt"), Charset.defaultCharset())){
+			uniqueWords = 
+				lines.flatMap(line -> Arrays.stream(line.split(" ")))
+					.distinct()
+					.count();
+}
+catch(IOException e){
+
+}
+```
+
+## 5. Infinite Stream
+
