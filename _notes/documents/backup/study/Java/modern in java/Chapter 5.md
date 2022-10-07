@@ -366,4 +366,50 @@ catch(IOException e){
 ```
 
 ## 5. Infinite Stream
+- Stream.iterate
+- Stream.generate
+- 정형화된 콜렉션에서 스트림을 생성했을 때 크기가 정해지지 않는다. `limit`으로 제어할 수 있다.
+
+### 5.1 Iterate
+```java
+// 등차 2인 등차수열
+Stream.iterate(0, n -> n + 2)
+		.limit(10)
+		.forEach(System.out :: println);
+
+// 피보나치 수열
+Stream.iterate(new int[] {0, 1}, t -> new int[] {t[1], t[0] + t[1]})
+		.limit(20)
+		.forEach(t -> System.out.println("("t[0] + ", " + t[1] + ")"));
+```
+#### takeWhile
+```java
+IntStream.iterate(0, n -> n + 4)
+			.takeWhile(n -> n < 100)
+			.forEach(System.out :: println);
+```
+
+### 5.2 generate
+- 연속적인 값을 반환하지는 않는다.
+```java
+Stream.generate(Math :: random)
+		.limit(5)
+		.forEach(System.out :: println);
+
+// 피보나치
+IntSupplier fib = new IntSupplier(){
+    private int previous = 0;
+    private int current = 1;
+    public int getAsInt(){
+
+        int oldPrevious = this.previous;
+        int nextValue = this.previous + this.current;
+        this.previous = this.current;
+        this.current = nextValue;
+        return oldPrevious;
+
+} };
+
+IntStream.generate(fib).limit(10).forEach(System.out::println);
+```
 
