@@ -247,7 +247,7 @@ EC2 인스턴스에서 실행, 가상 머신을 작동하는 방식과 비슷하
 
 ### `ECS` (Amazon Elastic Container Service)
 - 컨테이너식 애플리케이션을 실행, 확장 가능한 고성능 컨테이너 관리 시스템
-- `Docker` 지원 -> API 호출을 사용하여 Docker 지원 애플리케이션을 시작 및 중지 가능
+- `Docker` 지원 -> <mark>API 호출을 사용하여 Docker 지원 애플리케이션을 시작 및 중지 가능</mark>
 
 ### `EKS` (Amazon Elastic Kubernetis Service)
 - Kubernetes를 실행하는데 사용하는 완전 관리형 서비스
