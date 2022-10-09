@@ -115,6 +115,7 @@
 -   대규모 마이그레이션 / 반복 전송 워크플로 / 대용량 로컬 컴퓨팅
 -   `스토리지` : 블록 볼륨, S3 호환용 80TB HDD, 1TB SSD
 -   `컴퓨팅` : EC2 인스턴스 지원용 40개의 vCPU와 80GiB 메모리
+- <mark>오프라인에서</mark>데이터 수집, 지정 처리 후 데이터 이동
 
 ### 2. Snowball Edge Compute Optimized
 
