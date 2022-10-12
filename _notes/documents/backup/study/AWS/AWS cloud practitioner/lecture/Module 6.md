@@ -126,7 +126,7 @@ AWS는 클라우드 `자체의` 보안 책임짐
 
 # AWS Key Management Service (AWS KMS)
 
--   `저장 시` / `전송 중` 암호화
+-   `저장 시` / `전송 중` <mark>암호화</mark>
 -   암호화 키를 사용하여 암호화 가능 (IAM에서 관리 가능)
 
 # AWS WAF
