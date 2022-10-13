@@ -142,6 +142,7 @@
 -   `Amazon Comprehend` - 텍스트 패턴 검색
 -   `Amazon Fraud Detector` - 잠재적인 온라인 사기 행위 식별
 -   `Amazon Lex` - 음성 및 텍스트 챗봇 빌드
+- <mark>Amazon polly</mark> - 텍스트 -> 음성 변환 (transcribe와 반대)
 
 ## 3. 기계 학습
 
