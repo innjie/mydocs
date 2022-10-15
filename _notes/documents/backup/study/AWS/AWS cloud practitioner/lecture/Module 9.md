@@ -108,7 +108,7 @@
 -   작은 엣지 컴퓨팅 및 데이터 전송
 -   CPU 2 / RAM 4GB / STORAGE 8TB
 
-## 2. AWS Snowball
+## 2. <mark>AWS Snowball</mark>
 
 ### 1. Snowball Edge Storage Optimized
 
