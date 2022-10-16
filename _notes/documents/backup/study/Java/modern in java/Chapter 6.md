@@ -39,3 +39,17 @@ int totalCalories = menu.stream().collect(summingInt(Dish::getCalories));
 ```java
 double avgCalories = menu.stream().collect(averagingInt(Dish::getCalories));
 ```
+
+## String Join
+`toString()`을 사용하면 각 객체를 스트림으로 만들 수 있다.
+```java
+// 스트링 타입의 메뉴들을 ,로 구분하여 합친다.
+String shortMenu = menu.stream().map().map(Dish :: getName).collect(joining(","));
+```
+```ad-attention
+title: Collect vs Reduce
+
+`reduce`는 2개 값에서 새로운 1개의 값을 도출한다.병렬적으로 실행되지 않는다.
+`collect`는 생성해야하는 결과를 축적하기 위한 컨테이너를 변형하도록 설계되었다.병렬 처리에 친화적이다.
+```
+
