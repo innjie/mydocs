@@ -53,3 +53,12 @@ title: Collect vs Reduce
 `collect`는 생성해야하는 결과를 축적하기 위한 컨테이너를 변형하도록 설계되었다.병렬 처리에 친화적이다.
 ```
 
+# Grouping
+```java
+Map<Dish.Type, List<Dish>> caloricDishesByType = 
+					menu.stream()
+						.collect(groupingBy(Dish::getType,
+							filtering(dish -> dish.getCalories() > 500, toList())));
+```
+- `filtering` 메소드는 `Collectors` 의 정적 팩토리 메소드
+- groupingdmf 통해 매핑 기능으로 전환 용이
