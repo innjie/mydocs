@@ -97,6 +97,22 @@
 
 -   필요하지 않은 애플리케이션 제거
 
+# Migration
+## AWS Application Discovery Service
+-   온프레미스 데이터센터에서 실행되는 앱
+-   종속성 및 성능 프로파일 자동 식별
+-   필요 인프라를 자동 수집 후 목록 형식으로 작성
+
+## AWS Database Migration Service
+-   가장 널리 사용되는 상용 및 오픈소스 DB로부터 데이터 마이그레이션 가능
+-   오라클 - 아마존 오로라 / ms- mysql 등 이기종 플랫폼 마이그레이션 가능
+-   Redshift로 자원 스트리밍 -> 데이터 분석 가능
+
+## AWS Server Migration Service
+-   에이전트 없는 서비스
+-   AWS SMS -> 라이브 서버 볼륨의 증분식 복제를 자동화, 예약, 추적 가능
+
+
 ---
 
 # AWS Snow 패밀리 멤버
@@ -109,6 +125,10 @@
 -   CPU 2 / RAM 4GB / STORAGE 8TB
 
 ## 2. <mark>AWS Snowball</mark>
+-   대규모 데이터 전송 솔루션
+-   데이터 보안 및 완전한 연계보관성 보장
+-   데이터 보호를 위한 다중 보안 계층 사용
+-   전송 작업 처리 이후 소프트웨어 삭제 수행
 
 ### 1. Snowball Edge Storage Optimized
 
@@ -128,6 +148,11 @@
 -   대용량 데이터를 AWS로 이동하는데 사용하는 엑사바이트 규모 데이터 전송 서비스
 -   `스토리지` : 100PB
 
+## AWS Snowball Edge
+-   온보드 스토리지 및 컴퓨팅 기능 포함 데이터 전송 디바이스
+-   전송 중 전담 인력, GPS 추적, 모니터링, 감시 등 다중 보안 계층 사용
+-   AWS KMS를 통해 관리됨
+
 ---
 
 # AWS 서비스를 통한 혁신
@@ -143,7 +168,59 @@
 -   `Amazon Fraud Detector` - 잠재적인 온라인 사기 행위 식별
 -   `Amazon Lex` - 음성 및 텍스트 챗봇 빌드
 - <mark>Amazon polly</mark> - 텍스트 -> 음성 변환 (transcribe와 반대)
+- AmazonRekognition - 이미지 분석 / 딥러닝 기반 시각 검색 및 이미지 분류 기능 추가 가능
 
 ## 3. 기계 학습
-
 -   `Amazon SageMaker` : 모델 빌드, 훈련, 배포
+
+## 4. 모바일 서비스
+```ad-hint
+title: 기능
+
+-   앱 분석
+-   앱 콘텐츠 전송
+-   클라우드 로직
+-   NoSQL DB
+-   푸시 알림
+-   사용자 데이터 스토리지
+-   사용자 로그인
+-   커넥터
+-   대화형 봇
+-   사용자 참여
+```
+
+## Amazon Cognito
+-   로그인 기능 추가 서비스
+-   디바이스에 데이터 로컬 저장 - 오프라인 상태일때 동작가능
+
+## Amazon Pinpoint
+-   캠페인을 생성하여 모바일 앱에서 사용자 참여 유도
+-   사용자 행동 기반 푸시 알림으로 참여율 증가
+
+## AWS Device Farm
+-   앱 테스트 서비스
+-   상호작용 및 실시간 디바이스 문제 재현
+
+## AWS Mobile SDK
+-   다양한 AWS 서비스 액세스 가능
+
+## Amazon Mobile Analytics
+-   앱 사용량 및 수익 측정 가능
+-   S3과 Redshift로 커스텀 분석 실행 가능
+
+## 5. 애플리케이션 서비스
+## AWS Step Functions
+-   시각적 워크플로 사용- 분산 앱 및 구성요소 조정 가능
+-   구성 요소를 단계적으로 배열 및 시각화 가능한 그래픽 콘솔 제공
+-   각 단계를 트리거 및 추적, 오류 발생 시 재시도
+
+## Amazon API Gateway
+-   API를 생성, 유지 관리 가능한 완전 관리형 서비스
+-   백엔드 서비스로부터 로직 또는 기능에 액세스 가능
+
+## Amazon Elastic Transcoder
+-   미디어 트랜스코딩 기능 제공
+
+## Amazon SWF
+-   병렬적 / 순차적 백그라운드 작업을 빌드, 실행, 조정 가능
+-   완전관리형 상태 추적기 / 작업 조정자 기능

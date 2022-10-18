@@ -31,7 +31,6 @@ AWS는 클라우드 `자체의` 보안 책임짐
 # 사용자 권한 및 액세스
 
 # IAM
-
 -   AWS 서비스와 리소스에 대한 액세스 안전하게 관리
 -   보안 요구사항에 따른 `유연성` 제공
 -   IAM 사용자, 그룹 및 역할, IAM 정책, Multi-Factor Authentication
@@ -63,6 +62,23 @@ AWS는 클라우드 `자체의` 보안 책임짐
 -   `임시로 권한에 액세스` 하기 위해 수임하는 자격 증명
 -   이전 역할에 대한 권한을 포기하고 새 역할에 지정된 권한을 수임
 
+### IAM 사용자 관리 / 액세스 관리
+-   사용자 생성 후 보안 자격 증명 할당
+-   임시 보안 자격 요청 -> 작업 제어
+
+### IAM 역할 관리 / 권한 관리
+-   IAM에서 역할을 생성하고 맡은 개체 또는 서비스 제어 권한 관리
+-   역할 엔티티 정의
+
+### 연합된 사용자 관리 / 권한 관리
+-   자격 증명 연동 사용 -> IAM 생성하지 않고 사내 기존 자격 증명
+-   AWS API 호출 및 리소스 액세스
+
+## AWS 보안의 혜택
+1.  데이터를 안전하게 유지
+2.  규정 준수 요구사항 충족
+3.  비용 절감
+4.  빠르게 확장
 ---
 
 # AWS Organizations
@@ -99,6 +115,11 @@ AWS는 클라우드 `자체의` 보안 책임짐
 -   감사자 학습 경로 포함
 -   규제 대상 기업들이 어떻게 감사 과제를 해결했는지 확인 가능
 
+### AWS 준수하는 보증 프로그램
+-   SOC 1/SAE 3402, SOC 2, SOC 3
+-   FISMA, DIACAP, FedRAMP
+-   PCI DSS 레벨 1
+-   ISO 9001, ISO 27001, ISO 27018
 ---
 
 # 서비스 거부 공격
@@ -111,38 +132,65 @@ AWS는 클라우드 `자체의` 보안 책임짐
 -   `여러 소스` 로부터 공격
 
 # AWS Shield
+-   DDoS 보호 서비스
+-   애플리케이션 가동 중지 및 지연 시간 최소화하는 상시 탐지 및 자동 인라인 통합 제공
 
 ## AWS Sheild Standard
-
 -   모든 AWS 고객 `자동 보호` 무료 서비스 (DDOS)
 -   `실시간` 으로 악성 트래픽을 탐지하고 완화
+-   추가 비용 없이 자동 보호
 
 ## AWS Sheild Advanced
 
 -   정교한 DDOS 공격 탐지 및 완화
 -   `CloudFront`, `Route 53` , `Elastic Load Balancing` 과도 통합됨
 -   사용자 지정 규칙 작성 → WAF와 통합
+- 리소스에서 실행되는 공격을 높은 수준에서 방어
+-   공격 가시성, 방화벽과의 통합 제공
+-   AWS DDoS 대응 팀(DRT) 액세스 가능
 
 # 추가 보안 서비스
 
-# AWS Key Management Service (AWS KMS)
+## AWS Key Management Service (AWS KMS)
 
 -   `저장 시` / `전송 중` <mark>암호화</mark>
 -   암호화 키를 사용하여 암호화 가능 (IAM에서 관리 가능)
+- HSM으로 키 보안 유지
 
-# AWS WAF
+## AWS WAF
 
 -   웹 애플리케이션으로 들어오는 <mark>네트워크 요청을 모니터링</mark>할 수 있는 `방화벽`
 -   `CloudFront`, `Application Load Balancer` 와 함께 작동
 -   `ACL` (액세스 제어 목록) 사용
 
-# Amazon Inspector
+## Amazon Inspector
 
 -   `자동 보안 평가` 실행 → 애플리케이션 보안 및 규정 준수 개선
 -   EC2 인스턴스에 대한 오픈 액세스, 취약 SW 설치와 같은 `보안 취약성 검사`
+- 배포된 앱 보안 및 규정 준수 자동 보안 평가 서비스
+-   취약점 또는 모범 사례와의 차이 평가
+-   평가 수행 후 보안 평가 목록 제공, 심각도 수준에 따라 `우선순위 지정`
 
-# Amazon GuardDuty
-
+### Amazon GuardDuty
 -   AWS 인프라 및 리소스에 대한 `지능형 위협 탐지` 기능 제공
 -   네트워크 및 계정 활동 모니터링 - 소스 데이터 지속적으로 분석
 - <mark>DynamoDB에 저장된 데이터 암호화 자동 수행</mark>
+
+## Amazon Cloud Directory
+-   데이터 계층 조직할 수 있는 클라우드 기반 디렉터리 구축
+-   AD LDS, LDAP -> `단일 계층 구조만 지원`
+-   수억 개의 객체로 자동 확장, 공유 스키마 제공
+
+### AWS Certificate Manager
+-   SSL/TLS 인증서를 프로비저닝, 관리 배포 서비스
+-   AWS 리소스에 신속하게 배포, 인증서 갱신 작업 진행
+
+### AWS CloudHSM
+-   클라우드 내 전용 하드웨어 보안 모듈을 사용하여 데이터 보안에 도움
+-   HSM 내 암호화 키 보호 가능
+-   CloudHSM 인스턴스에 대한 독점 및 전용 액세스 권한 제공
+
+## AWS Directory Service
+
+-   관리형 Active Directory 활용 가능
+-   Group Policy, 트러스트, SSO 등 Active Directory 기본 기능 활용 가능
