@@ -40,6 +40,7 @@ title: on-demand
 - 속도 및 민첩성 향상  <mark>agility : 민첩한</mark>
 - 빠른 전세계 배포
 - <mark> 보안 </mark>
+- <mark>global footprint</mark> : 사용자와 가까운 위치에 데이터 저장
 
 <hr>
 
