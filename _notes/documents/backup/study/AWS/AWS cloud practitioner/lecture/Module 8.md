@@ -59,8 +59,14 @@
 ## 1. Basic Support
 
 -   모든 고객에게 `무료` 로 제공
--   백서, 설명서 및 지원 커뮤니티 액세스 포함
+-   백서, <mark>설명서 및 지원 커뮤니티 액세스</mark>  포함
 -   `AWS Personal Health Dashboard` 사용 가능
+
+```ad-hint
+title: AWS Personal Health Dashboard
+
+계정에 영향을 미칠 수 있는 진행중 / 에정 이벤트 정보 제공
+```
 
 ## 2. Developer, Business 및 Enterprise Support
 
@@ -77,6 +83,7 @@
 -   특정 요구 사항을 지원할 수 있는 AWS 제품, 기능 및 서비스 식별 사용 사례
 -   `AWS Trusted Advisor 검사`
 -   타사 SW 제한된 지원
+- 프로덕션 서비스 중단 시 지원 케이스 사용
 
 ### 2-3. Enterprise
 
@@ -106,3 +113,8 @@
 -   기계 학습
 -   마이그레이션
 -   보안
+
+## 소유 비용
+- 전력 및 냉각
+- 데이터센터를 위한 공간
+

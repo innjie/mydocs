@@ -162,6 +162,7 @@ AWS는 클라우드 `자체의` 보안 책임짐
 -   웹 애플리케이션으로 들어오는 <mark>네트워크 요청을 모니터링</mark>할 수 있는 `방화벽`
 -   `CloudFront`, `Application Load Balancer` 와 함께 작동
 -   `ACL` (액세스 제어 목록) 사용
+- 외부에서 <mark>SQL 인젝션 공격 완화 자동화</mark>
 
 ## Amazon Inspector
 
@@ -194,3 +195,6 @@ AWS는 클라우드 `자체의` 보안 책임짐
 
 -   관리형 Active Directory 활용 가능
 -   Group Policy, 트러스트, SSO 등 Active Directory 기본 기능 활용 가능
+
+## ACL
+- 인스턴스 네트워크 트래픽 차단
